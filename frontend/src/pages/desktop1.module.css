@@ -65,15 +65,23 @@
   font-family: var(--font-golos-text);
   position: relative;
   z-index: 3;
+  /* Column flex: H1 (full-width, horizontal) → .featureColumn (narrow desc) */
+  flex-direction: column;
+  gap: 48px;
 }
 .featureColumn {
   flex: 1;
   flex-direction: column;
-  /* ВАЖЛИВО: тримаємо текст у лівій колонці, щоб НІ ЗА ЯКИХ ОБСТАВИН (навіть
+  /* ВАЖЛИВО: тримаємо текст-ОПИС у лівій колонці, щоб НІ ЗА ЯКИХ ОБСТАВИН (навіть
    * найдовший текст з адмінки) він не накладався на дерево.
    * Дерево-зображення `Image2 .imageIcon` має `left: 536px`. Секція має
    * `padding-left: 119px` (default desktop) → доступний текстовий простір =
-   * 536 − 119 = 417px. Залишаємо 20px візуального зазора. */
+   * 536 − 119 = 417px. Залишаємо 20px візуального зазора.
+   *
+   * H1 заголовок ВИНЕСЕНО ВИЩЕ з цієї колонки (тепер дочірній елемент
+   * .featureColumnWrapper напряму) — це дає йому повну ширину секції,
+   * щоб «Відновлення після стресу.» йшло одним горизонтальним рядком,
+   * як у Figma-дизайні. */
   max-width: calc(536px - 119px - 20px); /* = 397px */
   overflow-wrap: break-word;
   /* Вертикальний ритм усередині лівої колонки:
@@ -233,22 +241,41 @@
   margin: 0;
   align-self: stretch;
   position: relative;
-  /* Fixed px (NOT vw-based) — ScaledShell scales the 1920px canvas;
-     vw-clamp would double-scale on QHD/4K and on narrow widths over-
-     shrink absolute-positioned neighbours. */
-  font-size: 46px;
-  letter-spacing: var(--ls--1);
-  line-height: 1.1;
+  /* Figma «Decorative/bold_2»: 82px / 120% / -1px / uppercase
+   * H1 ВИНЕСЕНО з вузької лівої колонки (.featureColumn 397px) і має
+   * повну ширину .featureColumnWrapper — щоб «Відновлення після стресу.»
+   * йшло одним горизонтальним рядком (як у дизайні), не переносячись
+   * вертикально.  white-space:nowrap — заборона авто-переносу всередині
+   * рядка; на вузьких viewport-ах знімається через @media. */
+  font-family: var(--font-golos-text);
+  font-size: 82px;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -1px;
   text-transform: uppercase;
-  font-family: inherit;
-  overflow-wrap: break-word;
+  color: var(--text-black, #2c2c27);
+  white-space: nowrap;
+  overflow: visible;
+  /* Якщо адмін вписав занадто довгий заголовок — даємо йому шанс
+     обрізатись еліпсисом, а НЕ ламати макет (overflow-x).            */
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 .span {
   font-weight: 600;
+  font-family: var(--font-golos-text);
+  color: var(--text-black, #2c2c27);
 }
 .span2 {
-  color: var(--text-grey);
+  /* Figma «Heading Commissioner/H2»: 82px / 120% / -1px / 400 / uppercase
+   * Сірий колір — допоміжна частина заголовка.                       */
+  color: var(--text-grey, #93928c);
   font-family: var(--font-commissioner);
+  font-weight: 400;
+  font-size: 82px;
+  line-height: 120%;
+  letter-spacing: -1px;
+  text-transform: uppercase;
 }
 .span4 {
   font-weight: 600;
@@ -616,6 +643,13 @@
     max-width: calc(536px - 59px - 20px);
     gap: 36px;
   }
+  /* Заголовок на «середньому» десктопі — трохи менший, але все ще
+     одним рядком. */
+  .h1,
+  .span2 {
+    font-size: 64px;
+    line-height: 120%;
+  }
   .textBlockWrapper {
     width: calc(536px - 59px - 20px);
   }
@@ -690,9 +724,11 @@
     font-size: 17px;
   }
   .h1,
-  .h2 {
+  .h2,
+  .span2 {
     font-size: var(--fs-41);
-    line-height: var(--lh-59);
+    line-height: 1.15;
+    white-space: normal;
   }
   .textBlock {
     gap: 69px;
@@ -733,9 +769,11 @@
     padding-right: 20px !important;
   }
   .h1,
-  .h2 {
+  .h2,
+  .span2 {
     font-size: var(--fs-25);
     line-height: var(--lh-39);
+    white-space: normal;
   }
   .textBlock {
     gap: 35px;

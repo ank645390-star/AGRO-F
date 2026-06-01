@@ -98,18 +98,17 @@ const Desktop1: React.FC = () => {
           chips={chips && chips.length > 0 ? chips : undefined}
         />
         <section className={styles.featureColumnWrapper}>
+          <h1 className={styles.h1}>
+            <span className={styles.span}>
+              <span>{titleLine1}</span>
+            </span>
+            <span className={styles.span2}>
+              <span className={styles.span}>{` `}</span>
+              <span>{titleLine2}</span>
+              <span className={styles.span4}>{` `}</span>
+            </span>
+          </h1>
           <div className={styles.featureColumn}>
-            <h1 className={styles.h1}>
-              <span className={styles.span}>
-                <span>{titleLine1}</span>
-              </span>
-              <span className={styles.span2}>
-                <span className={styles.span}>{` `}</span>
-                <span>{titleLine2}</span>
-                <span className={styles.span4}>{` `}</span>
-              </span>
-            </h1>
-
             {(hasProblem || hasSolution) && (
               <article className={styles.descCard}>
                 {hasProblem && (

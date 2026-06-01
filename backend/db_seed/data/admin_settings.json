@@ -1,0 +1,18 @@
+[
+  {
+    "channel": "none",
+    "created_at": "2026-06-01T12:16:11.470705+00:00",
+    "from_email": "",
+    "google_client_id": "539552820560-pso3qndegrntp46oneml9nr33t7rpi9j.apps.googleusercontent.com",
+    "google_enabled": true,
+    "site_name": "TAMIS АГРО",
+    "smtp_host": "",
+    "smtp_password": "",
+    "smtp_port": 465,
+    "smtp_use_tls": true,
+    "smtp_user": "",
+    "telegram_bot_token": "",
+    "telegram_chat_id": "",
+    "to_email": ""
+  }
+]

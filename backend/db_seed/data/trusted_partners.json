@@ -1,0 +1,79 @@
+[
+  {
+    "id": "94695d3f-3fb7-470d-bd62-4e41104fd46d",
+    "name": "Нібулон",
+    "logo_url": "/Screenshot-2026-02-11-at-12-52-41-1@2x-clean.png",
+    "link_url": "https://www.nibulon.com/",
+    "alt": "Нібулон",
+    "is_active": true,
+    "order": 0,
+    "created_at": "2026-06-01T06:00:02.656427+00:00",
+    "updated_at": "2026-06-01T06:00:02.656427+00:00"
+  },
+  {
+    "id": "c55a2f4e-6e1a-46c3-94f7-b544a7f3406e",
+    "name": "Kernel",
+    "logo_url": "/Screenshot-2026-02-11-at-12-52-58-1@2x-clean.png",
+    "link_url": "https://www.kernel.ua/",
+    "alt": "Kernel",
+    "is_active": true,
+    "order": 1,
+    "created_at": "2026-06-01T06:00:02.656427+00:00",
+    "updated_at": "2026-06-01T06:00:02.656427+00:00"
+  },
+  {
+    "id": "e1414b1e-b0bf-4237-b051-6eb1bd54b0aa",
+    "name": "Епіцентр Агро",
+    "logo_url": "/Screenshot-2026-02-11-at-12-52-46-1@2x-clean.png",
+    "link_url": "https://epicentragro.com/",
+    "alt": "Епіцентр Агро",
+    "is_active": true,
+    "order": 2,
+    "created_at": "2026-06-01T06:00:02.656427+00:00",
+    "updated_at": "2026-06-01T06:00:02.656427+00:00"
+  },
+  {
+    "id": "6d5ad602-19d7-417c-b479-b77463063bed",
+    "name": "ТОВ Бургуджи",
+    "logo_url": "/Screenshot-2026-02-11-at-12-53-29-1@2x-clean.png",
+    "link_url": "https://burgudzhi.com.ua/",
+    "alt": "ТОВ Бургуджи",
+    "is_active": true,
+    "order": 3,
+    "created_at": "2026-06-01T06:00:02.656427+00:00",
+    "updated_at": "2026-06-01T06:00:02.656427+00:00"
+  },
+  {
+    "id": "f690e94d-c09f-482b-8921-f8b841e49d45",
+    "name": "ТОВ Агро-Південь",
+    "logo_url": "/Screenshot-2026-02-11-at-12-53-09-1@2x-clean.png",
+    "link_url": "https://agro-south.com.ua/",
+    "alt": "ТОВ Агро-Південь",
+    "is_active": true,
+    "order": 4,
+    "created_at": "2026-06-01T06:00:02.656427+00:00",
+    "updated_at": "2026-06-01T06:00:02.656427+00:00"
+  },
+  {
+    "id": "590249e3-b58f-4b99-970b-242ff5e310cc",
+    "name": "МХП",
+    "logo_url": "/Screenshot-2026-02-11-at-12-53-04-1@2x-clean.png",
+    "link_url": "https://mhp.com.ua/",
+    "alt": "МХП",
+    "is_active": true,
+    "order": 5,
+    "created_at": "2026-06-01T06:00:02.656427+00:00",
+    "updated_at": "2026-06-01T06:00:02.656427+00:00"
+  },
+  {
+    "id": "a14b92da-5838-42f6-8c89-2c71a9910400",
+    "name": "Агрофирма Корнацьких",
+    "logo_url": "/Screenshot-2026-02-11-at-12-52-52-1@2x-clean.png",
+    "link_url": "https://kornatskyi.com.ua/",
+    "alt": "Агрофирма Корнацьких",
+    "is_active": true,
+    "order": 6,
+    "created_at": "2026-06-01T06:00:02.656427+00:00",
+    "updated_at": "2026-06-01T06:00:02.656427+00:00"
+  }
+]

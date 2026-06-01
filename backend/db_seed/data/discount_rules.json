@@ -1,0 +1,16 @@
+[
+  {
+    "id": "ff779f3a-4a79-466b-bb78-ffafae71eadd",
+    "name": "При купівлі від 100 л",
+    "description": "Базова обʼємна знижка для оптових замовлень.",
+    "type": "cart_volume_l",
+    "threshold": 100,
+    "percent": 5,
+    "category_slug": null,
+    "active": true,
+    "priority": 0,
+    "label": "При купівлі 100 л",
+    "created_at": "2026-06-01T10:27:32.936657+00:00",
+    "updated_at": "2026-06-01T10:27:32.936657+00:00"
+  }
+]

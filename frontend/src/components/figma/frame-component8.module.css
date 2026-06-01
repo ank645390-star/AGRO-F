@@ -1,0 +1,395 @@
+/* ============================================================
+ * Section «Ми не просто виробляємо препарати»
+ *
+ * Pixel-perfect HTML+CSS — координати взяті з Figma:
+ *
+ *   Section: 1920 × 1604
+ *   ┌────────────────────────────────────────────────────────┐
+ *   │ top:120  HEADING (left 120, right 120)                 │
+ *   │                                  ┌── DESCRIPTION ──┐   │
+ *   │                            top:470 ─ left:976 ─ r:120  │
+ *   │                                                        │
+ *   │             ┌── CANISTERS ──┐                          │
+ *   │             │  838 × 911    │  (overlay: вище зеленого)│
+ *   │             │  left: ~541   │                          │
+ *   │             │  top:  500    │                          │
+ *   │   ┌─────────┴───────────────┴────────┐                 │
+ *   │   │ FIELD 954×691 │ GREEN 954×691    │ top: 720        │
+ *   │   │ left:0        │ left:966         │ bottom: 1411    │
+ *   │   └───────────────┴──────────────────┘                 │
+ *   └────────────────────────────────────────────────────────┘
+ * ============================================================ */
+
+.parent {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  height: 1531px;
+  flex-shrink: 0;
+  background-color: var(--bg-cream, #F9F7F2);
+  overflow: hidden;
+  isolation: isolate;
+  text-align: left;
+  font-family: var(--font-golos-text), "Golos Text", sans-serif;
+  color: var(--text-black, #2C2C27);
+}
+
+/* ---------- Field card (left, поруч із зеленим блоком) ---------- */
+.fieldImage {
+  position: absolute;
+  left: 0;
+  top: 840px;
+  width: 954px;
+  height: 691px;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ---------- Showcase wrapper ----------
+   На десктопі — `display: contents`, тобто діти (.fieldImage, .canisters)
+   позиціонуються відносно `.parent` через свої абсолютні координати —
+   обгортка ефективно "прозора" для лейаута. На мобільному обгортка стає
+   повноцінною rounded-card композицією (див. блок @media). */
+.showcase {
+  display: contents;
+}
+
+/* ---------- Green panel (right) ---------- */
+.greenPanel {
+  position: absolute;
+  left: 966px;
+  top: 840px;
+  width: 954px;
+  height: 691px;
+  background-color: var(--bg-green, #ACB14F);
+  overflow: hidden;
+  z-index: 2;
+}
+.greenTexture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---------- Canisters (tight crop, ~3% більше за висоту карток 691px,
+ *            тобто ~712 visual. Aspect 504×552 → frame 650×712.
+ *            Розміщено так, що bottom каністр = bottom карток (1411),
+ *            а верх трошки виступає над top карток (720). ---------- */
+.canisters {
+  position: absolute;
+  left: 635px;
+  top: 819px;
+  width: 650px;
+  height: 712px;
+  object-fit: contain;
+  object-position: center bottom;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.28));
+  z-index: 5;
+}
+
+/* ---------- Heading ---------- */
+.h1 {
+  position: absolute;
+  left: 120px;
+  top: 134px;
+  right: 120px;
+  margin: 0;
+  z-index: 6;
+  font-size: 82px;
+  letter-spacing: -1px;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-family: inherit;
+  color: var(--text-black, #2C2C27);
+}
+.headingBlack {
+  font-family: var(--font-golos-text), "Golos Text", sans-serif;
+  font-weight: 600;
+  color: var(--text-black, #2C2C27);
+}
+.headingGrey {
+  font-family: var(--font-commissioner), "Commissioner", sans-serif;
+  font-weight: 400;
+  color: var(--text-grey, #93928C);
+}
+
+/* ---------- Description ---------- */
+.description {
+  position: absolute;
+  right: 120px;
+  width: 446px;
+  top: 570px;
+  margin: 0;
+  z-index: 6;
+  font-family: var(--font-golos-text), "Golos Text", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 125%;
+  color: var(--text-black, #2C2C27);
+}
+.description b {
+  font-weight: 700;
+}
+
+/* ---------- Feature stack on green panel ----------
+ * Координати з Figma:
+ *   top:   green_top (720) + 107 = 827
+ *   right: 120 від правого краю секції
+ *   width: 446 (фікс. ширина групи з 3-х фічей)
+ */
+.featureStack {
+  position: absolute;
+  /* Тепер featureStack — дочірній елемент .greenPanel.
+     Координати перерахован відносно greenPanel (left:966, top:840, w:954, h:691):
+       top: 947 - 840 = 107
+       right: 120 (від правого краю greenPanel = край parent)
+       width: 446 */
+  right: 120px;
+  width: 446px;
+  top: 107px;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  color: var(--text-cream, #F9F7F2);
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.featureRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.featureIcon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+.featureTitle {
+  margin: 0;
+  font-family: var(--font-golos-text), "Golos Text", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -1px;
+  color: var(--text-cream, #F9F7F2);
+  white-space: nowrap;
+}
+.featureBody {
+  margin: 0;
+  padding-left: 72px;
+  font-family: var(--font-golos-text), "Golos Text", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 120%;
+  color: var(--text-cream, #F9F7F2);
+}
+
+/* ---------- Responsive ---------- */
+@media screen and (max-width: 1700px) {
+  .parent {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   MOBILE (≤ 768px) — clean vertical stack layout.
+   Структура (after JSX restructure: featureStack now lives INSIDE greenPanel):
+     1) Heading
+     2) Description
+     3) Field photo banner (full width)
+     4) Canisters image (centered)
+     5) Green panel (auto-height, contains feature stack natively)
+   Без жодних negative margin-ів та абсолютного позиціонування.
+   ============================================================ */
+@media screen and (max-width: 768px) {
+  .parent {
+    height: auto;
+    min-height: 0;
+    /* Горизонтальний padding ПРИБРАНО — showcase і greenPanel ідуть від
+       краю до краю (full-bleed). Нижній padding теж 0 — салатовий блок
+       greenPanel впритул переходить у наступну (темно-зелену "Логістика")
+       секцію. Заголовок і опис мають власний padding по горизонталі. */
+    padding: 48px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* ----- Heading ----- */
+  .h1 {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 20px;
+    order: 1;
+    font-size: 28px;
+    line-height: 120%;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+  .headingBlack,
+  .headingGrey {
+    display: inline;
+    white-space: normal;
+  }
+
+  /* ----- Description ----- */
+  .description {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    right: auto;
+    top: auto;
+    margin: 24px 0 24px;
+    padding: 0 20px;
+    order: 2;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text-black, #2C2C27);
+  }
+
+  /* ----- Showcase composition block -----
+     Full-bleed (від краю до краю), без скруглення; поле = фон,
+     каністри = накладка. Прилягає впритул до .greenPanel знизу. */
+  .showcase {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    border-radius: 0;
+    overflow: hidden;
+    order: 3;
+    margin: 0;
+    isolation: isolate;
+    background: var(--bg-cream, #F9F7F2);
+  }
+
+  /* ----- Field photo banner (now background of showcase card) ----- */
+  .fieldImage {
+    position: absolute;
+    inset: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: center;
+    order: 0;
+    margin: 0;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+  }
+
+  /* ----- Canisters — absolutely positioned over field, bottom-aligned ----- */
+  .canisters {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    top: auto;
+    transform: translateX(-50%);
+    width: 86%;
+    max-width: none;
+    height: 78%;
+    margin: 0;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.22));
+    order: 0;
+    pointer-events: none;
+    user-select: none;
+    z-index: 2;
+  }
+
+  /* ----- Green panel — full-bleed, без скруглень, контактує впритул з .showcase ----- */
+  .greenPanel {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    order: 4;
+    border-radius: 0;
+    padding: 28px 22px 32px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .greenTexture {
+    border-radius: 0;
+  }
+
+  /* ----- Feature stack — flows naturally inside greenPanel ----- */
+  .featureStack {
+    position: static;
+    right: auto;
+    top: auto;
+    width: 100%;
+    max-width: 100%;
+    gap: 18px;
+    padding: 0;
+    z-index: auto;
+  }
+  .feature {
+    width: 100%;
+    gap: 4px;
+  }
+  .featureRow {
+    gap: 10px;
+    align-items: center;
+  }
+  .featureIcon {
+    width: 36px;
+    height: 36px;
+  }
+  .featureTitle {
+    font-size: 22px;
+    line-height: 1.15;
+    letter-spacing: -0.3px;
+    white-space: normal;
+  }
+  .featureBody {
+    padding-left: 46px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+/* Дрібніші телефони */
+@media screen and (max-width: 380px) {
+  .parent { padding: 40px 16px 48px; }
+  .h1 { font-size: 26px; }
+  .description { font-size: 15px; }
+  .greenPanel { padding: 24px 16px 28px; }
+  .featureTitle { font-size: 20px; }
+}

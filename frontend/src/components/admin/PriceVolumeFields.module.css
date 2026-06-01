@@ -1,0 +1,241 @@
+/* PriceVolumeFields module — узгоджено з AdminProductEdit.module.css */
+
+.input {
+  appearance: none;
+  padding: 10px 12px;
+  border: 1px solid #d9dad3;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #2c2c27;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.input:focus {
+  outline: none;
+  border-color: #1b4332;
+  box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.12);
+}
+
+.inputError {
+  border-color: #d04437 !important;
+  background-color: #fff8f7 !important;
+}
+.inputError:focus {
+  border-color: #d04437 !important;
+  box-shadow: 0 0 0 3px rgba(208, 68, 55, 0.18) !important;
+}
+
+/* ---------- PriceInput ---------- */
+.priceWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.priceWrap .input {
+  padding-right: 32px;
+}
+.suffix {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b6b66;
+  pointer-events: none;
+}
+.localErr {
+  display: block;
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: #fdecea;
+  color: #c14a3c;
+  border: 1px solid #f4c5be;
+  border-left: 3px solid #c14a3c;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  animation: pulseErr 0.4s ease-out;
+}
+@keyframes pulseErr {
+  0% { transform: translateY(-4px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.localErrInline {
+  font-size: 11px;
+  color: #c14a3c;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* ---------- VolumeSelect custom ---------- */
+.customRow {
+  display: grid;
+  grid-template-columns: 1fr 110px auto;
+  gap: 8px;
+  margin-top: 8px;
+  align-items: start;
+}
+.miniBtn {
+  appearance: none;
+  background: #fff;
+  border: 1px solid #d9dad3;
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #1b4332;
+  font-weight: 500;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.miniBtn:hover {
+  background: #f5f5f0;
+  border-color: #1b4332;
+}
+
+/* ---------- PackingChips ---------- */
+.chipsBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid #d9dad3;
+  border-radius: 8px;
+  min-height: 44px;
+  background: #fff;
+  align-items: center;
+}
+.chipsBox:focus-within {
+  border-color: #1b4332;
+  box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.12);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 4px 5px 10px;
+  background: #e7f0e9;
+  color: #1b4332;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+.chipX {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1b4332;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+  transition: background 0.15s ease;
+}
+.chipX:hover {
+  background: rgba(27, 67, 50, 0.15);
+}
+.chipInputRow {
+  display: inline-flex;
+  gap: 4px;
+  flex: 1;
+  min-width: 100px;
+  align-items: center;
+}
+.chipInput {
+  appearance: none;
+  border: 0;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 14px;
+  color: #2c2c27;
+  font-family: inherit;
+  padding: 6px 4px;
+  min-width: 80px;
+}
+.chipInput.inputError {
+  background: #fff8f7 !important;
+  border-radius: 4px;
+}
+.hint {
+  font-size: 11px;
+  color: #93928c;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.hint code,
+.hint kbd {
+  background: #f1f1ec;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  color: #2c2c27;
+}
+.hint kbd {
+  border: 1px solid #d9dad3;
+  box-shadow: 0 1px 0 #d9dad3;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.presetBtn {
+  appearance: none;
+  border: 1px dashed #d9dad3;
+  background: #fff;
+  color: #1b4332;
+  padding: 5px 11px;
+  border-radius: 14px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+.presetBtn:hover:not(:disabled) {
+  border-color: #1b4332;
+  background: #f5f5f0;
+}
+.presetBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ---------- Variant volume/price inline ---------- */
+.variantVolWrap {
+  flex: 0 0 110px;
+  display: flex;
+  flex-direction: column;
+}
+.variantPriceWrap {
+  flex: 0 0 130px;
+  position: relative;
+  display: flex;
+}
+.variantPriceWrap .input {
+  padding-right: 24px;
+}
+.suffixInline {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #6b6b66;
+  font-weight: 600;
+  pointer-events: none;
+}

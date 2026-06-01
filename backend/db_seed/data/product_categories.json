@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "biopesticide",
+    "label": "Біоінсектициди",
+    "sort_order": 1,
+    "active": true,
+    "id": "e9a5c22f-557d-4d3b-b35c-106f396754fa",
+    "updated_at": "2026-06-01T12:51:59.512428+00:00"
+  },
+  {
+    "slug": "macro",
+    "label": "Макро та мікроелементи",
+    "sort_order": 2,
+    "active": true,
+    "id": "5890815d-09db-484d-9d91-8a183e285557",
+    "updated_at": "2026-06-01T12:51:59.512428+00:00"
+  },
+  {
+    "slug": "inoculant",
+    "label": "Інокулянти",
+    "sort_order": 3,
+    "active": true,
+    "id": "4b67cb80-4bd7-4c94-9051-1e0869709ab2",
+    "updated_at": "2026-06-01T12:51:59.512428+00:00"
+  },
+  {
+    "slug": "adjuvant",
+    "label": "Допоміжні речовини",
+    "sort_order": 4,
+    "active": true,
+    "id": "2eb437d7-5242-4034-9f40-c12c91b37cae",
+    "updated_at": "2026-06-01T12:51:59.512428+00:00"
+  },
+  {
+    "slug": "rodenticide",
+    "label": "Родентициди",
+    "sort_order": 5,
+    "active": true,
+    "id": "31223560-4fa3-4fde-a93d-4a73b08366de",
+    "updated_at": "2026-06-01T12:51:59.512428+00:00"
+  },
+  {
+    "slug": "organic",
+    "label": "Органічні добрива",
+    "sort_order": 6,
+    "active": true,
+    "id": "f808f0cc-9dce-4e2d-88fe-525ff7226a4f",
+    "updated_at": "2026-06-01T12:51:59.512428+00:00"
+  }
+]

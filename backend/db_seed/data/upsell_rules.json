@@ -1,0 +1,33 @@
+[
+  {
+    "id": "4a535857-6ab4-4715-9b13-f00a2a2de859",
+    "title": "Підсиль виробництво — візьми разом",
+    "source_product_slugs": [
+      "venator"
+    ],
+    "target_product_slugs": [
+      "flores",
+      "agrostim"
+    ],
+    "priority": 10,
+    "active": true,
+    "created_at": "2026-06-01T10:27:32.925895+00:00",
+    "updated_at": "2026-06-01T10:27:32.925895+00:00"
+  },
+  {
+    "id": "333b0d8c-f9e2-4a08-9874-5bc7c84987a3",
+    "title": "Допоміжні речовини для кращого результату",
+    "source_product_slugs": [
+      "flores",
+      "agrostim"
+    ],
+    "target_product_slugs": [
+      "ph-balance",
+      "surfacto"
+    ],
+    "priority": 5,
+    "active": true,
+    "created_at": "2026-06-01T10:27:32.925895+00:00",
+    "updated_at": "2026-06-01T10:27:32.925895+00:00"
+  }
+]

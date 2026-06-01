@@ -1,0 +1,30 @@
+[
+  {
+    "content": "Clone repo and inspect structure",
+    "status": "completed"
+  },
+  {
+    "content": "Copy backend files to /app/backend (preserve .env)",
+    "status": "completed"
+  },
+  {
+    "content": "Copy frontend files to /app/frontend (preserve .env)",
+    "status": "completed"
+  },
+  {
+    "content": "Install backend Python dependencies",
+    "status": "completed"
+  },
+  {
+    "content": "Install frontend node dependencies",
+    "status": "completed"
+  },
+  {
+    "content": "Restart services and verify they run",
+    "status": "completed"
+  },
+  {
+    "content": "Verify the website loads via preview URL",
+    "status": "completed"
+  }
+]

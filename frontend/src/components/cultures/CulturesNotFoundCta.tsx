@@ -66,6 +66,16 @@ const CulturesNotFoundCta: React.FC = () => {
       </div>
 
       <div className={styles.consultationBgBlock}>
+        {/* Mobile-only headline: на мобайлі ховаємо верхній .consultationTitleWrap
+            і показуємо заголовок + підзаголовок ПО ЦЕНТРУ всередині bg-блоку,
+            у стилі CTA-секції /product. На desktop цей блок прихований. */}
+        <div className={styles.mobileHero} aria-hidden="false">
+          <h2 className={styles.mobileHeroTitle}>Не знайшли вашу культуру?</h2>
+          <p className={styles.mobileHeroSubtitle}>
+            Опишіть культуру та задачу — ми безкоштовно підберемо схему біозахисту.
+          </p>
+        </div>
+
         <div className={styles.consultationContent}>
           <div
             className={styles.featureBlock}

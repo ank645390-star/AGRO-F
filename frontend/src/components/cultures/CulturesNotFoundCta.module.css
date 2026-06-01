@@ -220,83 +220,160 @@
 }
 .phoneLink:active { opacity: 0.8; }
 
+/* =========================================================================
+   Mobile-only hero inside bg-block (desktop: hidden completely).
+   На мобайлі ця обгортка містить великий центрований заголовок
+   "НЕ ЗНАЙШЛИ ВАШУ КУЛЬТУРУ?" + підзаголовок — в точному стилі
+   CTA-секції /product (cta-section1). На desktop усе як було.
+   ========================================================================= */
+.mobileHero {
+  display: none;
+}
+
 /* ============================================================================
-   Mobile / tablet adaptations — 1-в-1 з contacts.module.css (@media 768).
+   Mobile / tablet adaptations — на мобайлі копіюємо поведінку
+   /product → cta-section1: фото-фон з темним scrim, центровані
+   заголовок + підзаголовок + кнопка + телефон, БЕЗ плашки 24-год
+   і БЕЗ окремого «темного» опису з адмінки.
    ============================================================================ */
 @media screen and (max-width: 768px) {
   .consultationSection {
-    margin-top: 16px;
+    margin-top: 0;
     padding: 0;
     background-color: var(--bg-cream, #f9f7f2);
   }
 
+  /* Ховаємо верхній чорно-білий заголовок (десктопну версію) — на мобайлі
+     показуємо натомість центровану версію усередині bg-блоку. */
   .consultationTitleWrap {
-    padding: 0 20px;
-  }
-  .consultationTitle {
-    font-size: 28px;
-    line-height: 1.15;
-    letter-spacing: -0.4px;
-    text-align: left;
-    width: 100%;
+    display: none;
   }
 
+  /* Bg-блок стає hero-карткою — фото-фон на повну ширину, висота фіксована
+     щоб умістити центрований текст + кнопку + телефон. Flex column +
+     justify-content:center → ВЕСЬ контент (заголовок + підзаголовок +
+     кнопка + телефон) вертикально центрується усередині картинки. */
   .consultationBgBlock {
-    margin-top: 20px;
+    margin-top: 0;
     width: 100%;
-    min-height: 0;
-    background-position: center bottom;
+    min-height: 620px;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
   }
+  /* Замість cream-градієнта — темний scrim для контрасту cream-тексту */
   .consultationBgBlock::before {
-    background: linear-gradient(180deg, #f9f7f2 0%, rgba(249,247,242,0.85) 35%, rgba(249,247,242,0) 70%);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.30) 0%,
+      rgba(0, 0, 0, 0.45) 50%,
+      rgba(0, 0, 0, 0.30) 100%
+    );
   }
 
+  /* Показуємо мобільний hero-заголовок + підзаголовок поверх фото.
+     padding-top:0 — вертикальне центрування контролює сам bg-блок
+     через justify-content:center. */
+  .mobileHero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 0 20px 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .mobileHeroTitle {
+    margin: 0;
+    font-family: "Golos Text", var(--font-golos-text), sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.18;
+    letter-spacing: -0.4px;
+    text-transform: uppercase;
+    color: #f9f7f2;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  .mobileHeroSubtitle {
+    margin: 0;
+    font-family: "Commissioner", var(--font-commissioner), sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #f9f7f2;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+  }
+
+  /* Контент-сітка стає колонкою; ховаємо 24-год badge і опис (їх замінює
+     mobileHeroSubtitle вгорі). padding знизу і зверху мінімальний — bg-блок
+     центрує усе по вертикалі. */
   .consultationContent {
     grid-template-columns: 1fr;
-    padding: 24px 20px 320px;
+    padding: 0 20px 0;
     min-height: 0;
-    gap: 20px;
+    gap: 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .featureBlock,
+  .consultationText {
+    display: none;
   }
 
-  .featureBlock {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    padding: 16px 16px;
-    gap: 12px;
-    align-self: start;
-    justify-self: stretch;
-    white-space: normal;
-  }
-  .featureIcon { width: 36px; height: 36px; }
-  .featureIcon svg { width: 36px; height: 36px; }
-  .featureBig  { font-size: 22px; white-space: nowrap; }
-  .featureSub  { font-size: 14px; max-width: 100%; white-space: normal; }
-
+  /* textBlock тепер центрований stack: тільки кнопка + телефон */
   .textBlock {
     width: 100%;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 0;
     margin-top: 0;
-    gap: 20px;
-    align-self: stretch;
-    justify-self: stretch;
+    gap: 0;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
   }
-  .consultationText { font-size: 16px; line-height: 1.4; }
-  .consultationBold { font-size: 18px; line-height: 1.35; }
+  /* Повітря між кнопкою і телефоном (як на /product CTA) */
+  .buttonGroup {
+    width: 100%;
+    align-items: center;
+    gap: 28px;
+  }
   .primaryBtn {
+    width: 100%;
     padding: 16px 20px;
     font-size: 16px;
     line-height: 1.2;
-    border-radius: 8px;
+    border-radius: 6px;
   }
   .primaryBtn:focus-visible {
-    outline: 3px solid rgba(27, 67, 50, 0.35);
+    outline: 3px solid rgba(255, 255, 255, 0.55);
     outline-offset: 2px;
   }
-  .phoneText { font-size: 16px; }
+
+  /* Телефон cream-кольору поверх темного фото */
+  .phoneText {
+    font-size: 18px;
+    color: #f9f7f2;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+  }
+  .phoneLink {
+    color: #f9f7f2;
+  }
+  .phoneLink:hover {
+    color: #acb14f;
+  }
 }
 
 @media screen and (max-width: 380px) {
-  .consultationTitle { font-size: 26px; }
+  .mobileHeroTitle { font-size: 24px; }
+  .mobileHeroSubtitle { font-size: 14px; }
 }

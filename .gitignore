@@ -84,3 +84,8 @@ frontend/node_modules/.cache/default-development/0.pack
 frontend/node_modules/.cache/default-development/5.pack
 frontend/node_modules/.cache/default-development/8.pack
 frontend/node_modules/.cache/default-development/11.pack
+
+# Env files (never push secrets/local config)
+.env
+backend/.env
+frontend/.env

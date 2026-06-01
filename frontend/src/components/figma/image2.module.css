@@ -85,9 +85,9 @@
   align-items: flex-start;
   gap: 12px;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.20);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  /* Solid background — same look on tree AND on white area
+     (no more `засвет` halo from backdrop-filter blurring white bg). */
+  background-color: #4a513a;
   z-index: 5;
   pointer-events: auto;
   font-family: var(--font-golos-text);
@@ -151,6 +151,8 @@
 .chip3 {
   top: 1064px;
   left: 1417px;
+  /* Cream variant overrides the solid olive base */
+  background-color: #f9f7f2;
 }
 .chip3 .chipTitle,
 .chip3 .chipBody { color: #2c2c27; }

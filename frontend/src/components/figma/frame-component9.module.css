@@ -367,8 +367,7 @@
   }
   .mainContent,
   .topRow,
-  .rateGroup,
-  .reviewGroup {
+  .rateGroup {
     width: 100%;
     min-width: 0;
     max-width: 100%;
@@ -410,5 +409,43 @@
   .averageValue {
     font-size: 32px;
     line-height: 1;
+  }
+
+  /* ───────────────────────────────────────────────────────────────────
+     Mobile review carousel:
+     На мобайлі список відгуків замість вертикального стека стає
+     горизонтальним скролом зі snap. Видно перший повністю та краєчок
+     наступного — щоб користувач явно бачив, що список можна гортати.
+     Користувач: "блок 'Відгуки' пустить в горизонтальный скролл."
+     ─────────────────────────────────────────────────────────────────── */
+  .reviewGroup {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 14px;
+    /* full-bleed: виходимо за межі 16px padding контейнера, щоб 1-ша
+       карточка починалась "від краю" і не лишала вузьку дзеркальну смужку */
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 4px 16px 12px;
+    width: calc(100% + 32px);
+    max-width: calc(100% + 32px);
+    scrollbar-width: none;
+  }
+  .reviewGroup::-webkit-scrollbar {
+    display: none;
+  }
+  .reviewGroup > * {
+    flex: 0 0 86%;
+    min-width: 260px;
+    max-width: 86%;
+    scroll-snap-align: start;
+    align-self: stretch;
   }
 }

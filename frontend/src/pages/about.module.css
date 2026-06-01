@@ -434,6 +434,10 @@
   line-height: 120%;
   font-weight: 600;
   color: #2c2c27;
+  /* Desktop: заборона переносу — заголовок «Зберігання +5‑10 °C» іде
+     одним рядком (місця в колонці 460px достатньо). На мобайлі
+     (@media 768) перевизначаємо на normal — там може переноситись. */
+  white-space: nowrap;
 }
 .labCardDesc {
   margin: 0;
@@ -1348,6 +1352,8 @@
     font-size: 22px;
     line-height: 1.2;
     letter-spacing: -0.2px;
+    /* На мобайлі дозволяємо перенос — вузький viewport */
+    white-space: normal;
   }
   .labCardDesc {
     /* Per design spec — 14px / 400 / 140% Golos Text. */

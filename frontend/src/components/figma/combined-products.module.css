@@ -129,7 +129,10 @@
   background: #fff;
   border: 1px solid var(--bg-green, #ACB14F);
   border-radius: 4px;
-  padding: 32px;
+  /* Дизайн-spec: внутрішній padding 32px (зверху/боки) + 40px знизу.
+     Боки/зверху 32px залишаємо як було, знизу збільшуємо до 40px,
+     щоб price + cart button мали повітря до краю картки. */
+  padding: 32px 32px 40px 32px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -340,9 +343,16 @@
 
 /* ===== Responsive ===== */
 @media screen and (max-width: 1920px) {
-  /* На viewport < 1920px зменшуємо padding секції так, щоб 3 картки завжди вміщались
-     без візуального обрізання лівої картки скролером. */
+  /* На viewport ≤ 1920px секція отримує padding 48px з кожного боку,
+     тож контент-простір = 100vw - 96px. Картка ширшає так, щоб рівно
+     3 картки + 2×24px gap дорівнювали контент-простору — без візуального
+     "пік"а 4-ї картки праворуч. Формула: cardW = (100vw - 96 - 48) / 3. */
   .section { padding: 0 48px 100px; }
+  .card {
+    width: calc((100vw - 96px - 48px) / 3);
+    min-height: 820px;
+  }
+  .photoWrap { width: 100%; max-width: 400px; height: 388px; }
 }
 @media screen and (max-width: 1700px) {
   .heading { font-size: 96px; }

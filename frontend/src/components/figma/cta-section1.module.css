@@ -44,12 +44,16 @@
   );
 }
 
-/* ----------- Main content stack — centered horizontally ----------- */
+/* ----------- Main content stack — centered horizontally AND vertically -----------
+   Раніше тут був абсолютний `top: 353px` у парі з 24-год бейджем знизу зліва.
+   Після видалення бейджа контент вирівнюємо строго по центру секції —
+   незалежно від точної висоти, через transform: translateY(-50%).         */
 .mainContent {
   position: absolute;
-  top: 353px;
+  top: 50%;
   left: 0;
   right: 0;
+  transform: translateY(-50%);
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -182,7 +186,7 @@
     height: 780px;
   }
   .mainContent {
-    top: 220px;
+    /* top:50% + translateY(-50%) keeps it centered — only gap/font scale here */
     gap: 44px;
     padding: 0 160px;
   }
@@ -193,76 +197,12 @@
     font-size: 34px;
   }
 }
-/* ===== 24-год SLA badge (bottom-left) ===========================
-   Same dark-green frosted-glass look as /contacts page.
-   Background #1B433233 (rgba(27,67,50,0.20)) + backdrop blur. */
-.badge {
-  position: absolute;
-  left: 120px;
-  bottom: 80px;
-  z-index: 3;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  height: 176px;
-  padding: 16px;
-  border-radius: 6px;
-  background: rgba(27, 67, 50, 0.20);
-  -webkit-backdrop-filter: blur(18px) saturate(110%);
-  backdrop-filter: blur(18px) saturate(110%);
-  color: #f9f7f2;
-  box-sizing: border-box;
-  white-space: nowrap;
-  pointer-events: none;
-}
-.badgeIcon {
-  width: 40px;
-  height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.badgeIcon svg { width: 40px; height: 40px; display: block; }
-.badgeText {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.badgeBig {
-  font-family: "Golos Text", sans-serif;
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 120%;
-  text-transform: uppercase;
-  color: #f9f7f2;
-  white-space: nowrap;
-}
-.badgeSub {
-  font-family: "Golos Text", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 130%;
-  color: #f9f7f2;
-  white-space: nowrap;
-}
-
-@media screen and (max-width: 1280px) {
-  .badge {
-    left: 60px;
-    bottom: 60px;
-    height: 140px;
-  }
-  .badgeBig { font-size: 24px; }
-  .badgeSub { font-size: 15px; }
-}
 
 @media screen and (max-width: 900px) {
   .ctaSection {
     height: 620px;
   }
   .mainContent {
-    top: 140px;
     gap: 32px;
     padding: 0 60px;
   }
@@ -278,15 +218,6 @@
   .buttonGroup {
     width: 300px;
   }
-  .badge {
-    left: 32px;
-    bottom: 32px;
-    height: 120px;
-    padding: 12px 14px;
-  }
-  .badgeIcon, .badgeIcon svg { width: 32px; height: 32px; }
-  .badgeBig { font-size: 20px; }
-  .badgeSub { font-size: 14px; white-space: normal; max-width: 220px; }
 }
 @media screen and (max-width: 768px) {
   .ctaSection {
@@ -296,6 +227,7 @@
   .mainContent {
     position: relative;
     top: auto;
+    transform: none;
     padding: 80px 20px;
     gap: 24px;
   }
@@ -317,18 +249,4 @@
     width: 100%;
     max-width: 320px;
   }
-  .badge {
-    position: relative;
-    left: auto;
-    bottom: auto;
-    margin: 0 20px 40px 20px;
-    height: auto;
-    min-height: 96px;
-    padding: 14px 16px;
-    white-space: normal;
-    width: calc(100% - 40px);
-  }
-  .badgeIcon, .badgeIcon svg { width: 28px; height: 28px; }
-  .badgeBig { font-size: 18px; }
-  .badgeSub { font-size: 13px; white-space: normal; }
 }

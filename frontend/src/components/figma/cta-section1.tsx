@@ -12,32 +12,12 @@ export type CtaSection1Type = {
   subtitle?: React.ReactNode;
 };
 
-/** Small inline 40×40 clock icon — identical look to /contacts page badge. */
-const IconClockWhite: React.FC = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="40"
-    height="40"
-    viewBox="0 0 40 40"
-    fill="none"
-    aria-hidden="true"
-  >
-    <path
-      d="M3.33 20C3.33 10.795 10.795 3.33 20 3.33C29.205 3.33 36.67 10.795 36.67 20C36.67 29.205 29.205 36.67 20 36.67C10.795 36.67 3.33 29.205 3.33 20Z"
-      stroke="#F9F7F2"
-      strokeWidth="1.67"
-      strokeLinecap="square"
-    />
-    <path d="M20 10.83V20L25 25" stroke="#F9F7F2" strokeWidth="1.67" strokeLinecap="square" />
-  </svg>
-);
-
 /**
  * Section "НЕ ЗНАЙШЛИ ВАШ ПРЕПАРАТ?" — reused on /catalog, /cultures,
  * /about and /product (single product). Optional `title`/`subtitle`
  * props let callers override the copy (e.g. on /cultures we say
- * "НЕ ЗНАЙШЛИ ВАШУ КУЛЬТУРУ?"). Includes a 24-год badge bottom-left
- * with the same dark-green frosted-glass styling as the /contacts page.
+ * "НЕ ЗНАЙШЛИ ВАШУ КУЛЬТУРУ?"). Headline + subtitle + CTA button are
+ * vertically centered within the full-bleed hero image.
  *
  * Кнопка «Отримати консультацію» відкриває ту ж саму callback-модалку,
  * що й «Замовити дзвінок» у хедері / footer / каталозі. Номер телефону
@@ -97,24 +77,6 @@ const CtaSection1: React.FC<CtaSection1Type> = ({
             {info.phone_primary}
           </a>
         </div>
-      </div>
-
-      {/* 24-год SLA badge — bottom-left, dark green frosted glass.
-          Same look as the badge on /contacts page (per Figma). */}
-      <div
-        className={styles.badge}
-        data-testid="product-cta-badge"
-        aria-label="Середній час відповіді нашого консультанта — 24 години"
-      >
-        <span className={styles.badgeIcon}>
-          <IconClockWhite />
-        </span>
-        <span className={styles.badgeText}>
-          <span className={styles.badgeBig}>24 год</span>
-          <span className={styles.badgeSub}>
-            Середній час відповіді нашого консультанта
-          </span>
-        </span>
       </div>
     </section>
   );
